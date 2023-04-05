@@ -22,7 +22,7 @@ public class BookRegister {
     private BookService bookService;
     @PostMapping("/save")
     public String addBook(@ModelAttribute Book book){
-        bookService.save(book);
+        bookService.addBooks(book);
         return "AvailableBook/availableBook";
     }
 

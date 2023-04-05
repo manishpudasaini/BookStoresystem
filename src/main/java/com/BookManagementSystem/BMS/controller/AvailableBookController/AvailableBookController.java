@@ -24,7 +24,7 @@ public class AvailableBookController {
     @GetMapping("/availableBook")
     public ModelAndView bookInfo(){
         List<Book> list = service.getBook();
-        return new ModelAndView("bookList","book",list);
+        return new ModelAndView("AvailableBook/availableBook","book",list);
     }
 
 
