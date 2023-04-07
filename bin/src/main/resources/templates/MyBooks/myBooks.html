@@ -39,26 +39,32 @@
     </div>
 </nav>
 
-<div class="container">
-    <form class=" col-md-4 offset-md-4 my-5" th:action="@{/save}" th:method="post">
-        <div class="mb-3">
-            <label for="name" class="form-label">Book Name : </label>
-            <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name="book_name">
-        </div>
-
-        <div class="mb-3">
-            <label for="author" class="form-label">Author : </label>
-            <input type="text" class="form-control" id="author" aria-describedby="emailHelp" name="author">
-        </div>
-        <div class="mb-3">
-            <label for="price" class="form-label">Price : </label>
-            <input type="text" class="form-control" id="price" aria-describedby="emailHelp" name="price">
-        </div>
 
 
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+<div class="container my-6" >
+    <table class="table my-5">
+        <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Author</th>
+            <th scope="col">Price</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="b:${book}">
+            <td th:text="${b.getId()}"> </td>
+            <td th:text="${b.getBook_name()}"></td>
+            <td th:text="${b.getAuthor()}"></td>
+            <td th:text="${b.getPrice()}"></td>
+
+        </tr>
+        </tbody>
+    </table>
 </div>
+
+
 
 
 

@@ -28,36 +28,33 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{~/mybooks}">My Books</a>
+                    <a class="nav-link" th:href="@{~/myBooks}">My Books</a>
                 </li>
             </ul>
         </div>
 
         <div>
-            <a class="nav-link active" aria-current="page" th:href="@{~/register}">Register New Books</a>
+           <a class="nav-link active" aria-current="page" th:href="@{~/register}">Register New Books</a>
         </div>
     </div>
 </nav>
 
-<div class="container">
-    <form class=" col-md-4 offset-md-4 my-5" th:action="@{/save}" th:method="post">
-        <div class="mb-3">
-            <label for="name" class="form-label">Book Name : </label>
-            <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name="book_name">
-        </div>
 
-        <div class="mb-3">
-            <label for="author" class="form-label">Author : </label>
-            <input type="text" class="form-control" id="author" aria-describedby="emailHelp" name="author">
-        </div>
-        <div class="mb-3">
-            <label for="price" class="form-label">Price : </label>
-            <input type="text" class="form-control" id="price" aria-describedby="emailHelp" name="price">
-        </div>
+<div class="container text-center my-5">
+    <h2>Welcome to Our Book Store</h2>
+    <p>
+        Ezio Book Store is dedicated to providing a one-of-a-kind experience for book enthusiasts.
+        Our store boasts a vast selection of books that cater to various interests and genres, including fiction,
+        non-fiction, science fiction, romance, mystery, history, and many more. We source our books from reputable
+        publishers and authors to ensure that our customers have access to high-quality reading materials.
+        In addition to purchasing books, our customers have the opportunity to read them on-site, either
+        in-store or in our cozy reading corner. Our comfortable seating areas are perfect for lounging and
+        getting lost in a good book, and we also offer complimentary coffee and tea to enhance the experience.
+        At Ezio Book Store, we understand that choosing the perfect book can be overwhelming, which is why
+        our staff is always available to provide personalized recommendations and suggestions based on each individual's preferences.
+        Our knowledgeable and friendly team is passionate about books and loves nothing more than sharing that passion with our customers.
+    </p>
 
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
 </div>
 
 

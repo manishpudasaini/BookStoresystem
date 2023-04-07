@@ -23,5 +23,11 @@ public class BookService {
 
 
 
+    public Book getBookById(int id){
+        return bookRepository.findById(id).get();
+    }
+
+
+
 
 }

@@ -52,11 +52,11 @@
         </thead>
         <tbody>
         <tr th:each="b:${book}">
-            <td th:text="${b.getId()}"> </td>
-            <td th:text="${b.getBook_name()}"></td>
-            <td th:text="${b.getAuthor()}"></td>
-            <td th:text="${b.getPrice()}"></td>
-            <td><a class="btn btn-secondary btn-sm">Add to MyBook</a></td>
+            <td th:text="${b.id}"></td>
+            <td th:text="${b.book_name}"></td>
+            <td th:text="${b.author}"></td>
+            <td th:text="${b.price}"></td>
+            <td><a class="btn btn-secondary btn-sm" th:href="@{/mylist/{id}(id=${b.id})}">Add to MyBook</a></td>
         </tr>
         </tbody>
     </table>
