@@ -14,12 +14,20 @@ public class MyBookService {
     @Autowired
     private MyBookRepository myBookRepository;
 
+
+    //to save the data in the database
     public void saveMyBooks(MyBooks books){
         myBookRepository.save(books);
     }
 
+    //to display the data in the table
     public List<MyBooks> getAllMyBooks(){
         return myBookRepository.findAll();
+    }
+
+    //for deleting the bppk using id
+    public void deleteByID(int id){
+        myBookRepository.deleteById(id);
     }
 
 

@@ -28,7 +28,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{~/mybooks}">My Books</a>
+                    <a class="nav-link" th:href="@{/myBooks}">My Books</a>
                 </li>
             </ul>
         </div>
@@ -56,7 +56,7 @@
             <td th:text="${b.book_name}"></td>
             <td th:text="${b.author}"></td>
             <td th:text="${b.price}"></td>
-            <td><a class="btn btn-secondary btn-sm" th:href="@{/mylist/{id}(id=${b.id})}">Add to MyBook</a></td>
+            <td><a class="btn btn-secondary btn-sm" th:href="@{/myList/{id}(id=${b.id})}">Add to MyBook</a></td>
         </tr>
         </tbody>
     </table>
