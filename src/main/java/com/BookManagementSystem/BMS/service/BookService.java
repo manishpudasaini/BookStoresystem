@@ -17,10 +17,9 @@ public class BookService {
         bookRepository.save(book);
     }
 
-    public List<Book> getBook(){
+    public List<Book> getAllBook(){
         return bookRepository.findAll();
     }
-
 
 
     public Book getBookById(int id){

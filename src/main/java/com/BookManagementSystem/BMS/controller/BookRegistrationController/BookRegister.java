@@ -20,10 +20,11 @@ public class BookRegister {
 
     @Autowired
     private BookService bookService;
+
     @PostMapping("/save")
     public String addBook(@ModelAttribute Book book){
         bookService.addBooks(book);
-        return "AvailableBook/availableBook";
+        return "redirect:/available";
     }
 
 }
