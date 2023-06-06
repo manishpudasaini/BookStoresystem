@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping
 public class BookController {
 
-    @GetMapping
+    @GetMapping("/home")
     public String mainPage(){
         return "main";
     }
+
+
 }

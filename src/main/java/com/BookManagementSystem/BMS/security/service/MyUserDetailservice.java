@@ -1,0 +1,29 @@
+package com.BookManagementSystem.BMS.security.service;
+
+import com.BookManagementSystem.BMS.security.model.MyUserDetails;
+import com.BookManagementSystem.BMS.security.model.User;
+import com.BookManagementSystem.BMS.security.repo.UserRepo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+import java.util.Optional;
+
+
+@Service
+public class MyUserDetailservice implements UserDetailsService {
+
+    @Autowired
+    private UserRepo userRepo;
+
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Optional<User> user =  userRepo.findByName(username);
+        return user
+                .map(MyUserDetails::new)
+                .orElseThrow(()-> new UsernameNotFoundException("User does not exist!!!"));
+    }
+}

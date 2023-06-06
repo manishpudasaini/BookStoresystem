@@ -10,7 +10,7 @@
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/" >Ezio BookStore</a>
+        <a class="navbar-brand" th:href="@{/home}" >Ezio BookStore</a>
         <button class="navbar-toggler"
                 type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,7 +20,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    <a class="nav-link active" aria-current="page" th:href="@{/home}">Home</a>
                 </li>
 
                 <li class="nav-item">
@@ -40,19 +40,22 @@
 </nav>
 
 <div class="container">
-    <form class=" col-md-4 offset-md-4 my-5" th:action="@{/save}" th:method="post">
+    <form class=" col-md-4 offset-md-4 my-5" th:action="@{/save}" th:object="${book}" th:method="post">
+        <div class="mb-3">
+            <input type="text" th:field="*{id}" hidden>
+        </div>
         <div class="mb-3">
             <label for="name" class="form-label">Book Name : </label>
-            <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name="book_name">
+            <input type="text" class="form-control" th:field="*{book_name}" id="name" aria-describedby="emailHelp">
         </div>
 
         <div class="mb-3">
             <label for="author" class="form-label">Author : </label>
-            <input type="text" class="form-control" id="author" aria-describedby="emailHelp" name="author">
+            <input type="text" class="form-control" th:field="*{author}" id="author" aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
             <label for="price" class="form-label">Price : </label>
-            <input type="text" class="form-control" id="price" aria-describedby="emailHelp" name="price">
+            <input type="text" class="form-control" th:field="*{price}" id="price" aria-describedby="emailHelp" >
         </div>
 
 

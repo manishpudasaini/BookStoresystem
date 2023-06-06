@@ -45,10 +45,10 @@ public class MyBookController {
     @RequestMapping("/deleteMyList/{id}")
     public String deleteMyList(@PathVariable("id") int id){
         myBookService.deleteByID(id);
-
         return "redirect:/myBooks";
     }
       
+
 
 
 

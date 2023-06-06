@@ -18,7 +18,6 @@ public class MyBooks {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-
     private String book_name;
     private String author;
     private String price;
