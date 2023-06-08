@@ -73,14 +73,14 @@
 <body>
 <div class="login-container">
     <h1>Register</h1>
-    <form  th:action="@{/user/save}" th:method="post" th:object="${user}">
-        <input type="text"  th:field="*{user.name}" placeholder="Username">
-        <input type="password" th:field="*{user.password}" placeholder="Password">
-        <input type="email" th:field="*{user.email}" placeholder="Email">
-        <input type="submit">Register</input>
+    <form  th:action="@{/saveUser}" th:method="post" th:object="${userRegister}">
+        <input type="text"  th:field="*{name}" placeholder="Username">
+        <input type="password" th:field="*{password}" placeholder="Password">
+        <input type="email" th:field="*{email}" placeholder="Email">
+        <button type="submit">Register</button>
     </form>
-    <h2>Login</h2>
-    <a th:href="@{/}" class="login-link">Already have an account? Login</a>
+
+    <a th:href="@{/signup}" class="login-link">Already have an account? Login</a>
 </div>
 </body>
 </html>

@@ -1,12 +1,10 @@
 package com.BookManagementSystem.BMS.security.controller;
 
-import com.BookManagementSystem.BMS.security.model.User;
+import com.BookManagementSystem.BMS.security.model.MyUserDetails;
 import com.BookManagementSystem.BMS.security.service.UserService;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 public class LoginController {
     private final UserService userService;
 
@@ -14,19 +12,19 @@ public class LoginController {
         this.userService = userService;
     }
 
-    @GetMapping
-    public String loginPage(){
-        return "login/login";
-    }
-    @GetMapping("/registration")
-    public String registrationPage(Model model){
-        model.addAttribute("user",new User());
-        return "login/registration";
+//    @GetMapping("/signup")
+//    public String loginPage(){
+//        return "login/login";
+//    }
+    @PostMapping("/registration")
+    public String registrationPage(@RequestBody MyUserDetails myUserDetails){
+        userService.addUser(myUserDetails);
+        return "user added successfully";
     }
 
-    @PostMapping("/user/save")
-    public String saveUser(@ModelAttribute User user){
-        userService.addUser(user);
-        return "redirect:/";
-    }
+//    @PostMapping("/saveUser")
+//    public String saveUser(@ModelAttribute User user){
+//        userService.addUser(user);
+//        return "redirect:/registration";
+//    }
 }

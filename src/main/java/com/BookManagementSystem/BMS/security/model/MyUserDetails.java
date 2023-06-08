@@ -1,5 +1,9 @@
 package com.BookManagementSystem.BMS.security.model;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -7,24 +11,24 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "my_user")
 public class MyUserDetails implements UserDetails {
+    @Id
+    @GeneratedValue
+    private Long id;
     private String name;
-    public String password;
-    List<GrantedAuthority> grantedAuthorityList;
+    private String password;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
-    public MyUserDetails(User user){
-        this.name = user.getName();
-        this.password = user.getPassword();
-        this.grantedAuthorityList = Arrays
-                .stream(user.getRole().split(","))
-                .map(SimpleGrantedAuthority::new)
-                .collect(Collectors.toList());
-    }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return grantedAuthorityList;
+        return List.of(new SimpleGrantedAuthority(role.name()));
     }
 
     @Override

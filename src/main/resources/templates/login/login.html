@@ -73,12 +73,11 @@
 <body>
 <div class="login-container">
   <h1>Login</h1>
-  <form>
-    <input type="text" placeholder="Username">
-    <input type="password" placeholder="Password">
+  <form action="/login" th:method="post">
+    <input type="text" placeholder="Username" name="username">
+    <input type="password" placeholder="Password" name="password">
     <button type="submit">Login</button>
   </form>
-  <h2>Register</h2>
   <a th:href="@{/registration}"  class="register-link">Create an account</a>
 </div>
 </body>

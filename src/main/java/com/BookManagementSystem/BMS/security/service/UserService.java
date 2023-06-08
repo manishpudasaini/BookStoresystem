@@ -1,18 +1,25 @@
 package com.BookManagementSystem.BMS.security.service;
 
-import com.BookManagementSystem.BMS.security.model.User;
+import com.BookManagementSystem.BMS.security.model.MyUserDetails;
+import com.BookManagementSystem.BMS.security.model.Role;
 import com.BookManagementSystem.BMS.security.repo.UserRepo;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
-    public final UserRepo userRepo;
+    private final UserRepo userRepo;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserService(UserRepo userRepo) {
+
+    public UserService(UserRepo userRepo, PasswordEncoder passwordEncoder) {
         this.userRepo = userRepo;
+        this.passwordEncoder = passwordEncoder;
     }
 
-    public User addUser(User user){
-        return userRepo.save(user);
+    public void addUser(MyUserDetails user){
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRole(Role.USER);
+        userRepo.save(user);
     }
 }
